@@ -17,7 +17,7 @@ public class GameControllerScript : MonoBehaviour
             {
                 Instantiate(
                     hole,
-                    new Vector3(-4f + space * x, -2.5f * y, 0f),
+                    new Vector3(-4f + space * x, -3.3f * y, 0f),
                     transform.rotation);
 
             }
