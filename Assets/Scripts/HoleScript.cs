@@ -10,7 +10,7 @@ public class HoleScript : MonoBehaviour
     {
         Instantiate(
             mogura,
-            new Vector3(transform.position.x, transform.position.y + 1,0f),
+            new Vector3(transform.position.x, transform.position.y + 1, 0f),
             transform.rotation
             );
     }
@@ -19,5 +19,21 @@ public class HoleScript : MonoBehaviour
     void Update()
     {
         
+    }
+
+    IEnumerator SpawnMogura()
+    {
+        Instantiate(
+            mogura,
+            new Vector3(transform.position.x, transform.position.y + 1, 0f),
+            transform.rotation
+            );
+        yield return new WaitForSeconds(1.0f);
+    }
+
+    IEnumerator DeleteMogura()
+    {
+        Destroy(mogura);
+        yield return new WaitForSeconds(1.0f);
     }
 }
