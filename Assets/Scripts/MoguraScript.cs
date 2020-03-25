@@ -13,14 +13,6 @@ public class MoguraScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            OnMouseDown();
-        }
-    }
-
-    void OnMouseDown()
-    {
-        Destroy(this.gameObject);
+        Destroy(gameObject,4f);   
     }
 }
