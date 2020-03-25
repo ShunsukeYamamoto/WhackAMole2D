@@ -1,16 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+
 
 public class GameControllerScript : MonoBehaviour
 {
     public GameObject mogura;
     public GameObject hole;
+    public int totalscore;
     float space = 4f;
 
     void Start()
     {
-        for(int x = 0; x < 3; x++)
+        mogura.AddComponent<EventTrigger>();
+        EventTrigger trigger = mogura.GetComponent<EventTrigger>();
+        EventTrigger.Entry entry = new EventTrigger.Entry();
+        entry.eventID = EventTriggerType.PointerDown;
+        entry.callback.AddListener((eventDate) => { Debug.Log("dddd"); });
+        trigger.triggers.Add(entry);
+
+        for (int x = 0; x < 3; x++)
         {
             for(int y = 0; y < 2; y++)
             {
@@ -39,8 +49,18 @@ public class GameControllerScript : MonoBehaviour
         }
     }
 
+    
+
     void Update()
     {
-        
+        //if (Input.GetMouseButtonDown(0))
+        //{
+        //    RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+
+        //    if (hit.collider != null)
+        //    {
+        //        if (hit.collider.gameObject.name == "mogura") { Destroy(gameObject); }
+        //    }
+        //}
     }
 }
