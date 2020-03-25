@@ -8,10 +8,8 @@ public class GameControllerScript : MonoBehaviour
     public GameObject hole;
     float space = 4f;
 
-    // Start is called before the first frame update
     void Start()
     {
-        time = 0f;
         for(int x = 0; x < 3; x++)
         {
             for(int y = 0; y < 2; y++)
@@ -25,9 +23,6 @@ public class GameControllerScript : MonoBehaviour
         }
         StartCoroutine("SpawnMogura");
     }
-
-    float time;
-
 
     IEnumerator SpawnMogura()
     {
@@ -44,20 +39,8 @@ public class GameControllerScript : MonoBehaviour
         }
     }
 
-    //IEnumerator DeleteMogura()
-    //{
-    //    Destroy(mogura.gameObject);
-    //    Debug.Log("delete");
-    //    yield return new WaitForSeconds(4f);
-    //}
-
-    // Update is called once per frame
     void Update()
     {
-        time += Time.deltaTime;
-        if (time > 4f)
-        {
-            Destroy(mogura.gameObject);
-        }
+        
     }
 }
