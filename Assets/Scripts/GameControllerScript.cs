@@ -2,23 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 
 public class GameControllerScript : MonoBehaviour
 {
     public GameObject mogura;
     public GameObject hole;
-    public int totalscore;
     float space = 4f;
+    private int score;
+    public Text scoreText;
 
     void Start()
     {
-        mogura.AddComponent<EventTrigger>();
-        EventTrigger trigger = mogura.GetComponent<EventTrigger>();
-        EventTrigger.Entry entry = new EventTrigger.Entry();
-        entry.eventID = EventTriggerType.PointerDown;
-        entry.callback.AddListener((eventDate) => { Debug.Log("dddd"); });
-        trigger.triggers.Add(entry);
+        score = 0;
+        UpdateScoreText();
+
 
         for (int x = 0; x < 3; x++)
         {
@@ -54,5 +53,16 @@ public class GameControllerScript : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void AddScore(int scoreAdd)
+    {
+        score += scoreAdd;
+        UpdateScoreText();
+    }
+
+    void UpdateScoreText()
+    {
+        scoreText.text = "Score:" + score;
     }
 }

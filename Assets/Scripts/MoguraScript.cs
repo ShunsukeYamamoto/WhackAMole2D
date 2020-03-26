@@ -6,9 +6,10 @@ using UnityEngine.EventSystems;
 
 public class MoguraScript : MonoBehaviour /*IPointerClickHandler*/
 {
+    private GameControllerScript gameController;
     void Start()
     {
-        
+        gameController = GameObject.FindWithTag("GameController").GetComponent<GameControllerScript>();
     }
 
 
@@ -21,5 +22,6 @@ public class MoguraScript : MonoBehaviour /*IPointerClickHandler*/
     public void OnClicked()
     {
         Destroy(gameObject);
+        gameController.AddScore(10);
     }
 }
