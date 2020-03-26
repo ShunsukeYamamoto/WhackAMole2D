@@ -13,9 +13,13 @@ public class GameControllerScript : MonoBehaviour
     private int score;
     public Text scoreText;
 
+    private float time;
+    public Text timeText;
+
     void Start()
     {
         score = 0;
+        time = 5f;
         UpdateScoreText();
 
 
@@ -52,7 +56,12 @@ public class GameControllerScript : MonoBehaviour
 
     void Update()
     {
-        
+        time -= Time.deltaTime;
+        timeText.text = $"{(int)time+1 }";
+        if (time < 0)
+        {
+            StopCoroutine("SpawnMogura");
+        }
     }
 
     public void AddScore(int scoreAdd)
