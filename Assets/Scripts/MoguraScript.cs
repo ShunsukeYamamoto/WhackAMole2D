@@ -16,12 +16,16 @@ public class MoguraScript : MonoBehaviour /*IPointerClickHandler*/
     void Update()
     {
         Destroy(gameObject, 4f);
-        
     }
 
     public void OnClicked()
     {
         Destroy(gameObject);
         gameController.AddScore(10);
+    }
+
+    public void DestroyAll()
+    {
+        Destroy(gameObject);
     }
 }
