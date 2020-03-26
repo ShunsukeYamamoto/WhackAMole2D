@@ -1,16 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
+
 
 public class GameControllerScript : MonoBehaviour
 {
     public GameObject mogura;
     public GameObject hole;
     float space = 4f;
+    private int score;
+    public Text scoreText;
 
     void Start()
     {
-        for(int x = 0; x < 3; x++)
+        score = 0;
+        UpdateScoreText();
+
+
+        for (int x = 0; x < 3; x++)
         {
             for(int y = 0; y < 2; y++)
             {
@@ -39,8 +48,21 @@ public class GameControllerScript : MonoBehaviour
         }
     }
 
+    
+
     void Update()
     {
         
+    }
+
+    public void AddScore(int scoreAdd)
+    {
+        score += scoreAdd;
+        UpdateScoreText();
+    }
+
+    void UpdateScoreText()
+    {
+        scoreText.text = "Score:" + score;
     }
 }
