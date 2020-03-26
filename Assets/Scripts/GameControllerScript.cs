@@ -10,16 +10,24 @@ public class GameControllerScript : MonoBehaviour
     public GameObject mogura;
     public GameObject hole;
     float space = 4f;
+
     private int score;
     public Text scoreText;
 
     private float time;
     public Text timeText;
 
+    public Text totalScore;
+
+    public GameObject replayButton;
+    public GameObject homeButton;
+
+
     void Start()
     {
         score = 0;
         time = 5f;
+        totalScore.text = "";
         UpdateScoreText();
 
 
@@ -60,7 +68,11 @@ public class GameControllerScript : MonoBehaviour
         timeText.text = $"{(int)time+1 }";
         if (time < 0)
         {
+            timeText.text = "0";
             StopCoroutine("SpawnMogura");
+            totalScore.text = "TOTALSCORE:" + score;
+            replayButton.SetActive(true);
+            homeButton.SetActive(true);
         }
     }
 
@@ -74,4 +86,7 @@ public class GameControllerScript : MonoBehaviour
     {
         scoreText.text = "Score:" + score;
     }
+
+
+    
 }

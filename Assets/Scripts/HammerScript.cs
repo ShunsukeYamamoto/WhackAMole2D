@@ -12,7 +12,6 @@ public class HammerScript : MonoBehaviour
     private Vector3 position;
     private Vector3 screenToWorldPointPosition;
 
-
     void Update()
     {
         position = Input.mousePosition;
