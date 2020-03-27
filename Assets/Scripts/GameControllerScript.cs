@@ -24,6 +24,8 @@ public class GameControllerScript : MonoBehaviour
 
     private MoguraScript moguraScript;
 
+    bool one;
+
 
     void Start()
     {
@@ -31,6 +33,7 @@ public class GameControllerScript : MonoBehaviour
         time = 30f;
         totalScore.text = "";
         UpdateScoreText();
+        one = true;
 
 
         for (int x = 0; x < 3; x++)
@@ -73,10 +76,14 @@ public class GameControllerScript : MonoBehaviour
             timeText.text = "0";
             StopCoroutine("SpawnMogura");
             totalScore.text = "TOTALSCORE:" + score;
-            moguraScript = GameObject.FindWithTag("Mogura").GetComponent<MoguraScript>();
-            moguraScript.DestroyAll();
             replayButton.SetActive(true);
             homeButton.SetActive(true);
+            if (one)
+            {
+                moguraScript = GameObject.FindWithTag("Mogura").GetComponent<MoguraScript>();
+                moguraScript.DestroyAll();
+                one = false;
+            }
         }
     }
 
