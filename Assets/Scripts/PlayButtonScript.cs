@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class HomeButtonScript : MonoBehaviour
+public class PlayButtonScript : MonoBehaviour
 {
-
     // Start is called before the first frame update
     void Start()
     {
-        gameObject.SetActive(false);
+        
     }
 
     // Update is called once per frame
@@ -20,6 +19,6 @@ public class HomeButtonScript : MonoBehaviour
 
     public void OnClicked()
     {
-        SceneManager.LoadScene("HomeScene");
+        SceneManager.LoadScene("GameScene");
     }
 }
