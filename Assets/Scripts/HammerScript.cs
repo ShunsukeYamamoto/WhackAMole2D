@@ -10,6 +10,11 @@ public class HammerScript : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            //UnityEditor.EditorApplication.isPlaying = false;
+            Application.Quit();
+        }
         position = Input.mousePosition;
         position.x += 30f;
         position.y += 50f;
