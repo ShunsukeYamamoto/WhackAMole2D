@@ -13,7 +13,6 @@
 ![image](https://user-images.githubusercontent.com/59650988/77819470-65da8a00-711e-11ea-99d6-f30000e33510.png)
 
 - ゲーム画面（GIF）
-
 ![c6da4d6c2259af9ca4ace88080004539](https://user-images.githubusercontent.com/59650988/77819512-b05c0680-711e-11ea-9d73-4ad655ce354e.gif)
 
 - スコア画面
