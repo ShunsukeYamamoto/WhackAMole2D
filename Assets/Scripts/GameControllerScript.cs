@@ -78,6 +78,7 @@ public class GameControllerScript : MonoBehaviour
     {
         time -= Time.deltaTime;
         timeText.text = $"{(int)time+1 }";
+
         if (time < 0)
         {
             timeText.text = "0";
@@ -94,22 +95,7 @@ public class GameControllerScript : MonoBehaviour
                 PlayerPrefs.SetString("scores", scoresdata);
                 PlayerPrefs.SetString("dates", datesdata);
                 PlayerPrefs.Save();
-                //PlayerPrefs.DeleteAll();
-
-                //var dates = datesdata.Split(',');
-                //var scores = scoresdata.Split(',');
-
-                //foreach (var score in scores)
-                //{
-                //    Debug.Log(score);
-                //}
-
-                //foreach (var date in dates)
-                //{
-                //    Debug.Log(System.DateTime.FromBinary(System.Convert.ToInt64(date)));
-                //}
-
-
+                
                 moguraScript = GameObject.FindWithTag("Mogura").GetComponent<MoguraScript>();
                 moguraScript.DestroyAll();
             }
@@ -126,7 +112,5 @@ public class GameControllerScript : MonoBehaviour
     {
         scoreText.text = "Score:" + score;
     }
-
-
-    
+        
 }
