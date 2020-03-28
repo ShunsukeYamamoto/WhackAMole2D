@@ -24,11 +24,18 @@ public class GameControllerScript : MonoBehaviour
 
     private MoguraScript moguraScript;
 
+    private string scoresdata;
+    private string datesdata;
+
     bool one;
 
 
     void Start()
     {
+
+        scoresdata = PlayerPrefs.GetString("scores");
+        datesdata = PlayerPrefs.GetString("dates");
+
         score = 0;
         time = 30f;
         totalScore.text = "";
@@ -80,9 +87,31 @@ public class GameControllerScript : MonoBehaviour
             homeButton.SetActive(true);
             if (one)
             {
+                one = false;
+
+                scoresdata += score.ToString() + ",";
+                datesdata += System.DateTime.Now.ToBinary().ToString() + ",";
+                PlayerPrefs.SetString("scores", scoresdata);
+                PlayerPrefs.SetString("dates", datesdata);
+                PlayerPrefs.Save();
+                //PlayerPrefs.DeleteAll();
+
+                //var dates = datesdata.Split(',');
+                //var scores = scoresdata.Split(',');
+
+                //foreach (var score in scores)
+                //{
+                //    Debug.Log(score);
+                //}
+
+                //foreach (var date in dates)
+                //{
+                //    Debug.Log(System.DateTime.FromBinary(System.Convert.ToInt64(date)));
+                //}
+
+
                 moguraScript = GameObject.FindWithTag("Mogura").GetComponent<MoguraScript>();
                 moguraScript.DestroyAll();
-                one = false;
             }
         }
     }
