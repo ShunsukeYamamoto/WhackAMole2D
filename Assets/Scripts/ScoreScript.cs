@@ -7,13 +7,11 @@ public class ScoreScript : MonoBehaviour
 {
     [SerializeField]
     RectTransform score = null;
-    // Start is called before the first frame update
     void Start()
     {
         var scoreArray = PlayerPrefs.GetString("scores").Split(',');
         var dateArray = PlayerPrefs.GetString("dates").Split(',');
 
-        //int count = 1;
         for (int i = 0; i < scoreArray.Length; i++)
         {
             var date = System.DateTime.FromBinary(System.Convert.ToInt64(dateArray[i]));
@@ -31,9 +29,4 @@ public class ScoreScript : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

@@ -5,11 +5,6 @@ using UnityEngine;
 public class HammerScript : MonoBehaviour
 {
     public AudioSource hammerSE;
-    void Start()
-    {
-
-    }
-
     private Vector3 position;
     private Vector3 screenToWorldPointPosition;
 
