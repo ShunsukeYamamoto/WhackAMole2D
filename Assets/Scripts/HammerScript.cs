@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class HammerScript : MonoBehaviour
 {
+    public AudioSource hammerSE;
     void Start()
     {
 
@@ -22,6 +23,7 @@ public class HammerScript : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             transform.Rotate(new Vector3(0f, 0f, 45f));
+            hammerSE.Play();
         }
 
         if (Input.GetMouseButtonUp(0))
