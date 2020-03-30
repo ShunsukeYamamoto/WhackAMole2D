@@ -12,7 +12,6 @@ public class HammerScript : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Escape))
         {
-            //UnityEditor.EditorApplication.isPlaying = false;
             Application.Quit();
         }
         position = Input.mousePosition;
@@ -29,7 +28,6 @@ public class HammerScript : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             transform.Rotate(new Vector3(0f, 0f, -45f));
-
         }
 
     }
