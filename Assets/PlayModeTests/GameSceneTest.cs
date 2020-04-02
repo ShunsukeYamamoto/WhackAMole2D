@@ -4,6 +4,7 @@ using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace Tests
 {
@@ -11,17 +12,14 @@ namespace Tests
     {
         GameObject[] holes;
         GameObject[] mogura;
+        Text scoreText;
+
 
         [SetUp]
         public void SetUp()
         {
             SceneManager.LoadScene("GameScene");
-        }
-
-        [TearDown]
-        public void Teardown()
-        {
-            
+            mogura = GameObject.FindGameObjectsWithTag("Mogura");
         }
 
         [Test]
@@ -34,20 +32,23 @@ namespace Tests
         [Test]
         public void CountMogura()
         {
-            mogura = GameObject.FindGameObjectsWithTag("Mogura");
             Assert.That(mogura.Length, Is.EqualTo(1));
         }
 
-        [UnityTest]
-        public IEnumerator CountMogura1()
-        {
-            mogura = GameObject.FindGameObjectsWithTag("Mogura");
-            yield return null;
-            Assert.IsTrue(mogura.Length <= 1);
 
+        [Test]
+        public void InitScoreText()
+        {
+            scoreText = GameObject.Find("ScoreText").GetComponent<Text>();
+            Debug.Log(scoreText.text);
+            Assert.That(scoreText.text, Is.EqualTo("Score:0"));
         }
 
-
-
+        [Test]
+        public void AddScoreText()
+        {
+            GameObject mogura1 = GameObject.FindGameObjectWithTag("Mogura");
+            mogura1.GetComponent<MoguraScript>().OnClicked();
+        }
     }
 }
