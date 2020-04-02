@@ -13,6 +13,7 @@ namespace Tests
         GameObject[] holes;
         GameObject[] mogura;
         Text scoreText;
+        Text timeText;
 
 
         [SetUp]
@@ -45,10 +46,10 @@ namespace Tests
         }
 
         [Test]
-        public void AddScoreText()
+        public void InitTimeText()
         {
-            GameObject mogura1 = GameObject.FindGameObjectWithTag("Mogura");
-            mogura1.GetComponent<MoguraScript>().OnClicked();
+            timeText = GameObject.Find("TimeText").GetComponent<Text>();
+            Assert.That(timeText.text, Is.EqualTo("30"));
         }
     }
 }
