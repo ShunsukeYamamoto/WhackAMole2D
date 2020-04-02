@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 
-public class MoguraScript : MonoBehaviour /*IPointerClickHandler*/
+public class MoguraScript : MonoBehaviour 
 {
     private GameControllerScript gameController;
     void Start()
