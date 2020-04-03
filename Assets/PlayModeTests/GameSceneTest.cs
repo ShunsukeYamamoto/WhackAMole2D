@@ -41,7 +41,6 @@ namespace Tests
         public void InitScoreText()
         {
             scoreText = GameObject.Find("ScoreText").GetComponent<Text>();
-            Debug.Log(scoreText.text);
             Assert.That(scoreText.text, Is.EqualTo("Score:0"));
         }
 
