@@ -38,7 +38,6 @@ public class GameControllerScript : MonoBehaviour
 
         score = 0;
         time = 30f;
-        //totalScore.text = "";
         UpdateScoreText();
         one = true;
 

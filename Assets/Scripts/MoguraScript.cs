@@ -12,7 +12,6 @@ public class MoguraScript : MonoBehaviour
         gameController = GameObject.FindWithTag("GameController").GetComponent<GameControllerScript>();
     }
 
-
     void Update()
     {
         Destroy(gameObject, 4f);
